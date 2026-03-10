@@ -1,6 +1,5 @@
 "use client";
-import { useState, Suspense, type CSSProperties } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, type CSSProperties } from "react";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/app/routes";
 import Image from "next/image";
@@ -44,13 +43,8 @@ const positionOptions = ["Director", "Chairman", "CEO", "CFO"];
 const statusOptions = ["Active", "Inactive"];
 
 export default function CompanyDetailsPage() {
-  return <Suspense><CompanyDetailsInner /></Suspense>;
-}
-
-function CompanyDetailsInner() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const count = Number(searchParams.get("count") ?? 10);
+  const count = 10;
 
   const [activeTab, setActiveTab] = useState("Board");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
