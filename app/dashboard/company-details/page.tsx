@@ -1,7 +1,8 @@
 "use client";
-import { useState, type CSSProperties } from "react";
+import { useState, Suspense, type CSSProperties } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { ROUTES } from "@/app/routes";
 import Image from "next/image";
 import {
   ChevronDown,
@@ -9,8 +10,8 @@ import {
 } from "lucide-react";
 
 const sidebarRoutes: Record<string, string> = {
-  "Company data": "/dashboard/company-details",
-  "Metrics hub": "/dashboard/metrics-hub",
+  "Company data": ROUTES.DASHBOARD.COMPANY_DETAILS,
+  "Metrics hub": ROUTES.DASHBOARD.METRICS_HUB,
 };
 const mainMenuItems = [
   { icon: "/dasboard/dashboard.png", label: "Dashboard" },
@@ -42,7 +43,11 @@ const tabTooltips: Record<string, string> = {
 const positionOptions = ["Director", "Chairman", "CEO", "CFO"];
 const statusOptions = ["Active", "Inactive"];
 
-export default function App() {
+export default function CompanyDetailsPage() {
+  return <Suspense><CompanyDetailsInner /></Suspense>;
+}
+
+function CompanyDetailsInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const count = Number(searchParams.get("count") ?? 10);

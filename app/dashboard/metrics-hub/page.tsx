@@ -2,12 +2,13 @@
 import React, { useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { ROUTES } from "@/app/routes";
 import { ChevronDown, ChevronUp, Search, Settings, MoreVertical, Download, X, ClipboardList, Plus } from "lucide-react";
 
 /* ── Sidebar data ── */
 const sidebarRoutes: Record<string, string> = {
-  "Company data": "/dashboard/company-details",
-  "Metrics hub": "/dashboard/metrics-hub",
+  "Company data": ROUTES.DASHBOARD.COMPANY_DETAILS,
+  "Metrics hub": ROUTES.DASHBOARD.METRICS_HUB,
 };
 const mainMenuItems = [
   { icon: "/dasboard/dashboard.png", label: "Dashboard" },
