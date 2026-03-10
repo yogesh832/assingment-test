@@ -12,12 +12,12 @@ A Next.js platform for data management, metrics tracking, and company governance
 
 ## Routes
 
-| Route                        | Page         | Description                                 |
-| ---------------------------- | ------------ | ------------------------------------------- |
-| `/`                          | Sign In      | Login page with email/password              |
-| `/signup`                    | Sign Up      | 4-step registration flow                    |
-| `/dashboard/company-details` | Company Data | Board members table, modal form, pagination |
-| `/dashboard/metrics-hub`     | Metrics Hub  | Company Metrics & Metrics Dictionary tabs   |
+| Route                                 | Page         | Description                                 |
+| ------------------------------------- | ------------ | ------------------------------------------- |
+| `/`                                   | Sign In      | Login page with email/password              |
+| `/signup`                             | Sign Up      | 4-step registration flow                    |
+| `/dashboard/company-details?count=10` | Company Data | Board members table, modal form, pagination |
+| `/dashboard/metrics-hub`              | Metrics Hub  | Company Metrics & Metrics Dictionary tabs   |
 
 ## Route Config
 
@@ -28,7 +28,7 @@ export const ROUTES = {
   SIGN_IN: "/",
   SIGN_UP: "/signup",
   DASHBOARD: {
-    COMPANY_DETAILS: "/dashboard/company-details",
+    COMPANY_DETAILS: "/dashboard/company-details?count=10",
     METRICS_HUB: "/dashboard/metrics-hub",
   },
 };
